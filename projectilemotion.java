@@ -9,8 +9,6 @@ public class projectilemotion implements ActionListener, ChangeListener{
         JTextField mealcost;
         JLabel costlabel;
         JButton bad;
-        JButton good;
-        JButton great;
         JLabel resultlabel;
         JSlider theslider;
         // Methods
@@ -22,19 +20,7 @@ public class projectilemotion implements ActionListener, ChangeListener{
                         double dblTip = Double.parseDouble(mealcost.getText())*0.05;
                         double dblTax = Double.parseDouble(mealcost.getText()) *0.13;
                         double dblTot = Double.parseDouble(mealcost.getText())+dblTip+dblTax;
-                        resultlabel.setText("Tip is: $"+dblTip+", Tax is $"+dblTax+", Total is $"+dblTot);
-                }else if(evt.getSource() == good){
-                        // Tip 10%
-                        double dblTip = Double.parseDouble(mealcost.getText())*0.10;
-                        double dblTax = Double.parseDouble(mealcost.getText()) *0.13;
-                        double dblTot = Double.parseDouble(mealcost.getText())+dblTip+dblTax;
-                        resultlabel.setText("Tip is: $"+dblTip+", Tax is $"+dblTax+", Total is $"+dblTot);
-                }else if(evt.getSource() == great){
-                        // Tip 20%
-                        double dblTip = Double.parseDouble(mealcost.getText())*0.20;
-                        double dblTax = Double.parseDouble(mealcost.getText()) *0.13;
-                        double dblTot = Double.parseDouble(mealcost.getText())+dblTip+dblTax;
-                        resultlabel.setText("Tip is: $"+dblTip+", Tax is $"+dblTax+", Total is $"+dblTot);
+                        resultlabel.setText("Shot");
                 }else if(evt.getSource() == mealcost){
                         try{
                                 int intVal = Integer.parseInt(mealcost.getText());
@@ -53,40 +39,31 @@ public class projectilemotion implements ActionListener, ChangeListener{
         }
         // Constructor
         public projectilemotion(){
-                theframe = new JFrame("Tip Calculator");
+                theframe = new JFrame("Projectile Motion");
                 thepanel = new JPanel();
-                thepanel.setPreferredSize(new Dimension(400, 200));
+                thepanel.setPreferredSize(new Dimension(960, 540));
+                theframe.setResizable(false);
                 thepanel.setLayout(null);
                 mealcost = new JTextField("0");
                 mealcost.setSize(200, 50);
                 mealcost.setLocation(0,0);
                 mealcost.addActionListener(this);
                 thepanel.add(mealcost);
-                costlabel = new JLabel("How much did the meal cost");
+                costlabel = new JLabel("Angle of launch");
                 costlabel.setSize(200, 50);
                 costlabel.setLocation(0,50);
                 thepanel.add(costlabel);
-                theslider = new JSlider(0, 500, 0);
+                theslider = new JSlider(0, 90, 0);
                 theslider.setSize(200, 50);
                 theslider.setLocation(0, 100);
                 theslider.addChangeListener(this);
                 thepanel.add(theslider);
-                bad = new JButton("bad service");
+                bad = new JButton("shoot");
                 bad.setSize(200, 50);
                 bad.setLocation(200, 0);
                 bad.addActionListener(this);
                 thepanel.add(bad);
-                good = new JButton("good service");
-                good.setSize(200, 50);
-                good.setLocation(200, 50);
-                good.addActionListener(this);
-                thepanel.add(good);
-                great = new JButton("great service");
-                great.setSize(200, 50);
-                great.setLocation(200, 100);
-                great.addActionListener(this);
-                thepanel.add(great);
-                resultlabel = new JLabel("Tip is: $0, Tax is $0, Total is $0");
+                resultlabel = new JLabel("Aiming");
                 resultlabel.setSize(400, 50);
                 resultlabel.setLocation(0, 150);
                 thepanel.add(resultlabel);
