@@ -2,7 +2,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import javax.swing.event.*;
-public class tipcalculator implements ActionListener, ChangeListener{
+public class projectilemotion implements ActionListener, ChangeListener{
         // Properties
         JFrame theframe;
         JPanel thepanel;
@@ -52,7 +52,7 @@ public class tipcalculator implements ActionListener, ChangeListener{
 }
         }
         // Constructor
-        public tipcalculator(){
+        public projectilemotion(){
                 theframe = new JFrame("Tip Calculator");
                 thepanel = new JPanel();
                 thepanel.setPreferredSize(new Dimension(400, 200));
@@ -97,6 +97,6 @@ public class tipcalculator implements ActionListener, ChangeListener{
 }
         // Main method
         public static void main(String[] args){
-                new tipcalculator();
+                new projectilemotion();
 }
 }
