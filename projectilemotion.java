@@ -97,6 +97,6 @@ public class projectilemotion implements ActionListener, ChangeListener{
 }
         // Main method
         public static void main(String[] args){
-                new projectilemotion();
+                new projectilemotion()
 }
 }
