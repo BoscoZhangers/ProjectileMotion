@@ -29,7 +29,7 @@ like the observer design pattern to develop an interactive graphical user interf
    cd ProjectileMotion
    ```
 
-4. **Run: In `ProjectileMotion/` run:
+4. **Run: In `ProjectileMotion/` run:**
    ```
    java -jar ProjectileMotion.jar
    ```
