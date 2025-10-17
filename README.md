@@ -36,9 +36,10 @@ like the observer design pattern to develop an interactive graphical user interf
 ### ${}$
 
 ## 🧩 Features 
-${}$
 
 ![Features](assets/FeaturesGIF.gif)
+
+${}$
 
 ## 🧠 Design Notes
 
