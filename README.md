@@ -7,7 +7,7 @@ like the observer design pattern to develop an interactive graphical user interf
 
 ${}$
 
-## 🚀 How to Run (Setup)
+## ⚙️ Instructions & Setup
 
 1. **Java Installation:**
    First and foremost, ensure that you have Java installed. You can check this by running the following:
