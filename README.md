@@ -35,6 +35,10 @@ like the observer design pattern to develop an interactive graphical user interf
    ```
 ### ${}$
 
+## 🧩 Features 
+${}$
+
+![Features](assets/FeaturesGIF.gif)
 
 ## 🧠 Design Notes
 
@@ -45,3 +49,9 @@ By incorporating a solid design pattern that makes use of object definitions, ef
 to easily support future changes, improvements or additions.
 
 We made an active effort to design our program as defensively as possible with a consistent use of exception handling to address hypothetical shortcomings or errors (such as graphical elements not being found, invalid user input, etc...).
+
+
+### ${}$
+
+## 💬 Feedback 
+All feedback, whether, commentative or suggestive, are welcome. If you experience any bugs or have any suggestions on improvement, feel free to reach out to me at Boscozhang715@gmail.com! We are always looking for ways to learn and improve! :)
