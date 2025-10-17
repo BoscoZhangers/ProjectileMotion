@@ -53,6 +53,11 @@ to easily support future changes, improvements or additions.
 
 We made an active effort to design our program as defensively as possible with a consistent use of exception handling to address hypothetical shortcomings or errors (such as graphical elements not being found, invalid user input, etc...).
 
+${}$
+
+## 📝 Documentation
+[![Animation Panel Documentation](docs/documentation.png)](https://boscozhangers.github.io/ProjectileMotion/AnimationPanel.html)
+
 
 ### ${}$
 
