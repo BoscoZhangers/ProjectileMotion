@@ -294,6 +294,8 @@ public class ProjectileMotion implements ActionListener, ChangeListener{
                         OKButton.setEnabled(false);
                         AirTime.setVisible(false);
                         Range.setVisible(false);
+						AnimPanel.blnShowVectors = false;
+						AnimPanel.repaint();
 			//Re-enabling the disabled modification items and hiding all dynamic display components (ex. launch explosion effects, projectile image, vector components, etc...)
 		}
 	}
@@ -452,48 +454,48 @@ public class ProjectileMotion implements ActionListener, ChangeListener{
 		AnimPanel.add(InitialHeightSlider);
 
 		InitialHeightLabel = new JLabel("Initial Height (m):");
-                InitialHeightLabel.setSize(200, 50);
-                InitialHeightLabel.setLocation(45, 20);
-                AnimPanel.add(InitialHeightLabel);		
+		InitialHeightLabel.setSize(200, 50);
+		InitialHeightLabel.setLocation(45, 20);
+		AnimPanel.add(InitialHeightLabel);		
 		
-		//Launch Button	
+		// Launch Button	
 		LaunchButton = new JButton("Launch Projectile");
 		LaunchButton.setSize(300, 60);
 		LaunchButton.setLocation(510, 450);
 		LaunchButton.addActionListener(this);
 		AnimPanel.add(LaunchButton);
 	
-		//Results Screen JComponents	
+		// Results Screen JComponents	
 		AirTime = new JLabel();
-  	     	Range = new JLabel();
-       	 	OKButton = new JButton("OK");
+		Range = new JLabel();
+		OKButton = new JButton("OK");
 
 		AirTime.setSize(200, 50);
-       		Range.setSize(200, 50);
-   	     	AirTime.setLocation(410, 150);
-       		Range.setLocation (410, 170);
+		Range.setSize(200, 50);
+		AirTime.setLocation(410, 150);
+		Range.setLocation (410, 170);
 
-        	OKButton.setSize(80, 40);
-        	OKButton.setLocation(425, 230);
-                OKButton.addActionListener(this);
+		OKButton.setSize(80, 40);
+		OKButton.setLocation(425, 230);
+		OKButton.addActionListener(this);
 
 		//Help Panel Page Flip Buttons
 		RightButton = new JButton("Next");
-                RightButton.setSize(150, 50);
-                RightButton.setLocation(740, 445);
+		RightButton.setSize(150, 50);
+		RightButton.setLocation(740, 445);
 		RightButton.addActionListener(this);
-                HelpPANEL.add(RightButton);  
+		HelpPANEL.add(RightButton);  
 
-                LeftButton = new JButton("Back");     
-                LeftButton.setSize(150, 50);
-                LeftButton.setLocation(80, 445);
+		LeftButton = new JButton("Back");     
+		LeftButton.setSize(150, 50);
+		LeftButton.setLocation(80, 445);
 		LeftButton.addActionListener(this);
-                HelpPANEL.add(LeftButton);	
+		HelpPANEL.add(LeftButton);	
 	
-		//Modifying main GUI components (size, location, layouts, user interface settings, etc..) for panels and frames...
-                MainWindowFrame.pack();
-                MainWindowFrame.setResizable(false);
-                MainWindowFrame.setVisible(true);	
+		// Modifying main GUI components (size, location, layouts, user interface settings, etc..) for panels and frames...
+		MainWindowFrame.pack();
+		MainWindowFrame.setResizable(false);
+		MainWindowFrame.setVisible(true);	
 	}
 	//Method for converting string to object for jcombobox item (projectile selector);
 	public Object makeObj(final String item){
@@ -504,11 +506,12 @@ public class ProjectileMotion implements ActionListener, ChangeListener{
 	public void VCalc (double dblVi, double dblAngle){
 		dblInitialVX = dblVi*(Math.cos(Math.toRadians(dblAngle)));
 		dblInitialVY = dblVi*(Math.sin(Math.toRadians(dblAngle)));
-		System.out.println("Vi: "+dblInitialV+" Vx: "+dblInitialVX+" Vy: "+dblInitialVY);
+		 // System.out.println("Vi: "+dblInitialV+" Vx: "+dblInitialVX+" Vy: "+dblInitialVY);
 	}
 
 	// Main Method
 	public static void main(String [] args){
+		System.out.println("Version 2.0");
 		new ProjectileMotion();
 	}
 }
