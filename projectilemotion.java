@@ -11,10 +11,10 @@ import javax.swing.JOptionPane;
 import java.awt.event.*;
 import javax.swing.event.*;
 
-//Defining main class and implementing Java event listeners
+// Defining main class and implementing Java event listeners
 public class ProjectileMotion implements ActionListener, ChangeListener{
         
-	// Properties    **************************************************************************************************************************************************************************
+	// Properties  =====================================================
 
 	//Frames and Panels
 	JFrame MainWindowFrame;
@@ -57,23 +57,23 @@ public class ProjectileMotion implements ActionListener, ChangeListener{
 	JSlider InitialHeightSlider;
 	JSlider InitialVelocitySlider;
 	
-	//CheckBoxes
+	// CheckBoxes
 	JCheckBox ShowVecComponents;
 	
-	//Buttons
+	// Buttons
 	JButton LaunchButton;
 
-	//DropDown (Combo Boxes)
+	// DropDown (Combo Boxes)
 	JComboBox ChooseProjectileComboBox;
 	
-	//Results Screen:
+	// Results Screen:
 	JLabel AirTime;
 	JLabel Range;
 	JButton OKButton;
 
-	//Help Panel:
+	// Help Panel:
 	JButton RightButton;
-        JButton LeftButton;
+	JButton LeftButton;
 
 	// Methods   **********************************************************************************************************************************************************************
 	
@@ -85,29 +85,32 @@ public class ProjectileMotion implements ActionListener, ChangeListener{
 			MainWindowFrame.setContentPane(AboutP);
 			MainWindowFrame.revalidate();
 			MainWindowFrame.setLayout(new ScrollPaneLayout());
-			//Setting up the "About Panel" when user selects "About" from Menu
+			// Setting up the "About Panel" when user selects "About" from Menu
 
 		} else if (evt.getSource() == Help){
 			HelpPANEL.intPageNum = 1;
 			HelpPANEL.repaint();	
 			MainWindowFrame.setContentPane(HelpPANEL);
 			MainWindowFrame.validate();
-			//Setting up the "Help Panel" when user selects "Help" from Menu
+			// Setting up the "Help Panel" when user selects "Help" from Menu
 				
 			LeftButton.setEnabled(false);
 			RightButton.setEnabled(true);
-			//Set to be false since the intPageNum always resets back to 1 whenever HelpPANEL is entered from the JMenu.
-			//Resetting right button to fix runtime exception: user exits HelpPANEL on page 6 when RightButton is disabled. Re-opening help panel will leave both left and right buttons disabled. 
+			// Set to be false since the intPageNum always resets back to 1 whenever HelpPANEL is entered from the JMenu.
+			// Resetting right button to fix runtime exception: user exits HelpPANEL on page 6 when RightButton is disabled. 
+			// Re-opening help panel will leave both left and right buttons disabled. 
 
 		} else if (evt.getSource() == RightButton){
-			HelpPANEL.intPageNum=HelpPANEL.intPageNum+1;
-			if (HelpPANEL.intPageNum == 6){
+
+			HelpPANEL.intPageNum = HelpPANEL.intPageNum + 1;
+
+			if (HelpPANEL.intPageNum == 6) {
 				RightButton.setEnabled(false);
 			} else {
 				RightButton.setEnabled(true);
 			} 
 			
-			if (HelpPANEL.intPageNum > 1){
+			if (HelpPANEL.intPageNum > 1) {
 				LeftButton.setEnabled(true);
 			}
 			HelpPANEL.repaint();
@@ -137,7 +140,7 @@ public class ProjectileMotion implements ActionListener, ChangeListener{
 			try{
 				InitialVelocitySlider.setValue(Integer.parseInt(InitialVelocityTextField.getText()));
 				dblInitialV = (double) InitialVelocitySlider.getValue();
-                        	this.VCalc(dblInitialV, dblLaunchAngle);
+                this.VCalc(dblInitialV, dblLaunchAngle);
 				//Accepting user input values for Initial Velocity from a JTextField
 			} catch (NumberFormatException e){
 				InitialVelocityTextField.setText("10");
@@ -192,12 +195,12 @@ public class ProjectileMotion implements ActionListener, ChangeListener{
 			if (ShowVecComponents.isSelected()==true){
 				AnimPanel.blnShowVectors = true;
 				AnimPanel.repaint();
-				System.out.println("Showing Vectors");
+				// System.out.println("Showing Vectors");
 				//Transmitting user-invoked request to show vector components via AnimPanel.blnShowVectors *Note: Vector components are displayed by default.
 			} else if (ShowVecComponents.isSelected() == false){
 				AnimPanel.blnShowVectors = false;
 				AnimPanel.repaint();
-				System.out.println("Hiding Vectors");
+				// System.out.println("Hiding Vectors");
 				//Transmitting user-invoked request to hide vector components via AnimPanel.blnShowVectors
 			}
 		} else if (evt.getSource() == LaunchButton){
