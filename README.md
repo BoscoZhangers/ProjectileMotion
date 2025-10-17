@@ -20,9 +20,9 @@ like the observer design pattern to develop an interactive graphical user interf
    ```
 
 3. **Clone the repository:**
-  ```
-  git clone https://github.com/BoscoZhangers/ProjectileMotion.git
-  ```
+   ```
+   git clone https://github.com/BoscoZhangers/ProjectileMotion.git
+   ```
 
 3. **Enter the repo:**
    ```
