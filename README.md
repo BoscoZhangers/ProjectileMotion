@@ -56,7 +56,7 @@ We made an active effort to design our program as defensively as possible with a
 ${}$
 
 ## 📝 Documentation
-[![Animation Panel Documentation](docs/documentation.png)](https://boscozhangers.github.io/ProjectileMotion/AnimationPanel.html)
+[![Animation Panel Documentation](documentation.png)](https://boscozhangers.github.io/ProjectileMotion/AnimationPanel.html)
 
 
 ### ${}$
