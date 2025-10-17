@@ -5,6 +5,8 @@ Co-Owned by: Bosco Zhang, Nihal Sidhu
 A 2-dimensional projectile motion simulator built with Java swing. This project utilizes core object-oriented design concepts 
 like the observer design pattern to develop an interactive graphical user interface (GUI).
 
+${}$
+
 ## 🚀 How to Run (Setup)
 
 1. **Java Installation:**
