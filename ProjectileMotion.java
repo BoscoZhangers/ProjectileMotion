@@ -1,9 +1,11 @@
-//Projectile Motion
-//Authors: Bosco Zhang and Nihal Sidhu
-//Last Modified: Friday, May 17, 2024
-//Version Number: 6.0 Beta 
+// =============================================================================
+// Projectile Motion
+// Authors: Bosco Zhang and Nihal Sidhu
+// Last Modified: Friday, May 17, 2024
+// Version Number: 6.0 Beta 
+// =============================================================================
 
-//Importing all Libraries and Java Toolkits
+// Importing all Libraries and Java Toolkits
 import java.io.*;
 import java.awt.*;
 import javax.swing.*;
@@ -15,7 +17,7 @@ import javax.swing.event.*;
 public class ProjectileMotion implements ActionListener, ChangeListener {
 	static double VERSION = 2.0;
         
-	// Properties  =====================================================
+	// Properties =============================================================
 
 	//Frames and Panels
 	JFrame MainWindowFrame;
@@ -26,7 +28,7 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 	// Animation Timer (48 FPS) 
 	Timer AnimTimer = new Timer(1000/48, this);
 	Timer AirTimer = new Timer(1, this);
-	int intMilSec=0;
+	int intMilSec = 0;
 	
 	//Menu Components
 	JMenuBar MenuBar;
@@ -35,25 +37,25 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 	JMenuItem About;
 	JMenuItem Help;
 
-	//Projectile Dynamic Properties & Initialization
-	double dblInitialHeight=0.0;
-	double dblLaunchAngle=60.0;
-	double dblInitialV=60.0;
-	double dblInitialVX=51.96;
-	double dblInitialVY=30.0;
+	// Projectile Dynamic Properties & Initialization
+	double dblInitialHeight = 0.0;
+	double dblLaunchAngle = 60.0;
+	double dblInitialV = 60.0;
+	double dblInitialVX = 51.96;
+	double dblInitialVY = 30.0;
 
-	//Labels
+	// Labels
 	JLabel SelectProjectileLabel;
 	JLabel AngleLabel;
 	JLabel InitialHeightLabel;
 	JLabel InitialVelocityLabel;
 	JLabel GravityLabel;
 	
-	//Text Fields
+	// Text Fields
 	JTextField AngleTextField;
 	JTextField InitialVelocityTextField;
 
-	//Sliders
+	// Sliders
 	JSlider AngleSlider;
 	JSlider InitialHeightSlider;
 	JSlider InitialVelocitySlider;
@@ -76,9 +78,9 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 	JButton RightButton;
 	JButton LeftButton;
 
-	// Methods   **********************************************************************************************************************************************************************
+	// METHODS =============================================================================
 	
-	//ActionListener-Compatible Event Methods: Overriding actionPerformed interface method
+	// ActionListener-Compatible Event Methods: Overriding actionPerformed interface method
 	public void actionPerformed(ActionEvent evt){
 		if (evt.getSource() == About){
 			AboutP.repaint();
@@ -115,7 +117,7 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 				LeftButton.setEnabled(true);
 			}
 			HelpPANEL.repaint();
-			//Executes "flip page ~ forward" by adjusting the intPageNum variable as read on the HelpPanel class. 
+			// Executes "flip page ~ forward" by adjusting the intPageNum variable as read on the HelpPanel class. 
 
 		} else if (evt.getSource() == LeftButton){
 			HelpPANEL.intPageNum = HelpPANEL.intPageNum - 1;
@@ -130,12 +132,12 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 				RightButton.setEnabled(true);
 			}
 			HelpPANEL.repaint();
-			//Executes "flip page ~ back" by adjusting the intPageNum variable as read on the HelpPanel class.		
+			// Executes "flip page ~ back" by adjusting the intPageNum variable as read on the HelpPanel class.		
 	
 		} else if (evt.getSource() == Simulation){
 			MainWindowFrame.setContentPane(AnimPanel);
 			MainWindowFrame.validate();
-			//Setting up the "Animation Panel" when user selects "Simulation" from Menu
+			// Setting up the "Animation Panel" when user selects "Simulation" from Menu
 
 		} else if (evt.getSource() == InitialVelocityTextField){
 			try{
@@ -143,68 +145,68 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 				dblInitialV = (double) InitialVelocitySlider.getValue();
                 this.VCalc(dblInitialV, dblLaunchAngle);
 				//Accepting user input values for Initial Velocity from a JTextField
-			} catch (NumberFormatException e){
+			} catch (NumberFormatException e) {
 				InitialVelocityTextField.setText("10");
 				InitialVelocitySlider.setValue(10);
 				dblInitialV = (double) InitialVelocitySlider.getValue();
 				this.VCalc(dblInitialV, dblLaunchAngle);
 				//Defaulting all incompatible input values to a minimal velocity magnitude of 10
-			} if (Integer.parseInt(InitialVelocityTextField.getText()) < 10){
+			} if (Integer.parseInt(InitialVelocityTextField.getText()) < 10) {
 				InitialVelocityTextField.setText("10");
 				InitialVelocitySlider.setValue(10);
 				dblInitialV = (double) InitialVelocitySlider.getValue();
 				this.VCalc(dblInitialV, dblLaunchAngle);
-				//Defaulting all undervalued inputs to 10
-			} else if (Integer.parseInt(InitialVelocityTextField.getText()) > 100){
+				// Defaulting all undervalued inputs to 10
+			} else if (Integer.parseInt(InitialVelocityTextField.getText()) > 100) {
 				InitialVelocityTextField.setText("100");
 				InitialVelocitySlider.setValue(100);
 				dblInitialV = (double) InitialVelocitySlider.getValue();
 				this.VCalc(dblInitialV, dblLaunchAngle);
-				//Defaulting all overvalued inputs to 100
+				// Defaulting all overvalued inputs to 100
 			}
-		} else if (evt.getSource() == AngleTextField){
+		} else if (evt.getSource() == AngleTextField) {
 			try{
 				AngleSlider.setValue(Integer.parseInt(AngleTextField.getText()));
 				dblLaunchAngle = (double) AngleSlider.getValue();
 				this.VCalc(dblInitialV, dblLaunchAngle);
-				//Accepting user input values for Launch Angle from a JTextField
-			} catch (NumberFormatException e){
+				// Accepting user input values for Launch Angle from a JTextField
+			} catch (NumberFormatException e) {
 				AngleTextField.setText("60");
 				AngleSlider.setValue(60);
 				dblLaunchAngle = (double) AngleSlider.getValue();
 				this.VCalc(dblInitialV, dblLaunchAngle);
-				//Defaulting all incompatible input values to an arbitrary launch angle of 60 degrees	
+				// Defaulting all incompatible input values to an arbitrary launch angle of 60 degrees	
 			}
-			if (Integer.parseInt(AngleTextField.getText()) < -90){
+			if (Integer.parseInt(AngleTextField.getText()) < -90) {
 				AngleTextField.setText("-90");
 				AngleSlider.setValue(-90);
 				dblLaunchAngle = (double) AngleSlider.getValue();
 				this.VCalc(dblInitialV, dblLaunchAngle);
-				//Defaulting all undervalued inputs to -90 degrees
-			} else if (Integer.parseInt(AngleTextField.getText()) > 90){
+				// Defaulting all undervalued inputs to -90 degrees
+			} else if (Integer.parseInt(AngleTextField.getText()) > 90) {
 				AngleTextField.setText("90");
 				AngleSlider.setValue(90);
 				dblLaunchAngle = (double) AngleSlider.getValue();
 				this.VCalc(dblInitialV, dblLaunchAngle);
  				//Defaulting all overvalued inputs to 90 degrees
 			}
-		} else if (evt.getSource() == ChooseProjectileComboBox){
+		} else if (evt.getSource() == ChooseProjectileComboBox) {
 			AnimPanel.strProjectile = String.valueOf(ChooseProjectileComboBox.getSelectedItem());
 			AnimPanel.repaint();
-			//Transfering a user-invoked projectile change signal to AnimationPanel via AnimPanel.strProjectile
+			// Transfering a user-invoked projectile change signal to AnimationPanel via AnimPanel.strProjectile
 		} else if (evt.getSource() == ShowVecComponents){
-			if (ShowVecComponents.isSelected()==true){
+			if (ShowVecComponents.isSelected()==true) {
 				AnimPanel.blnShowVectors = true;
 				AnimPanel.repaint();
 				// System.out.println("Showing Vectors");
-				//Transmitting user-invoked request to show vector components via AnimPanel.blnShowVectors *Note: Vector components are displayed by default.
-			} else if (ShowVecComponents.isSelected() == false){
+				// Transmitting user-invoked request to show vector components via AnimPanel.blnShowVectors *Note: Vector components are displayed by default.
+			} else if (ShowVecComponents.isSelected() == false) {
 				AnimPanel.blnShowVectors = false;
 				AnimPanel.repaint();
 				// System.out.println("Hiding Vectors");
-				//Transmitting user-invoked request to hide vector components via AnimPanel.blnShowVectors
+				// Transmitting user-invoked request to hide vector components via AnimPanel.blnShowVectors
 			}
-		} else if (evt.getSource() == LaunchButton){
+		} else if (evt.getSource() == LaunchButton) {
 			dblInitialV = (double) InitialVelocitySlider.getValue();
 			dblLaunchAngle = (double) AngleSlider.getValue();
 			dblInitialHeight = (double) InitialHeightSlider.getValue();
@@ -218,9 +220,9 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 			AnimPanel.dblProjectileX = 110.0;
 			AnimPanel.dblProjectileY = 315.0 - 3.0*dblInitialHeight;
 			AnimPanel.strProjectile = String.valueOf(ChooseProjectileComboBox.getSelectedItem());	
-			//Resetting air timer and projectile coordinate (position) values from previous launch(es)
+			// Resetting air timer and projectile coordinate (position) values from previous launch(es)
 		
-			//Disabling all modifications for a clean animation run without interruptions:
+			// Disabling all modifications for a clean animation run without interruptions:
 			InitialHeightSlider.setEnabled(false);
 			AngleSlider.setEnabled(false);
 			InitialVelocitySlider.setEnabled(false);
@@ -237,51 +239,52 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 			AirTimer.restart();
 			AnimPanel.blnStatus = true;
 			AnimPanel.blnShowVectors = ShowVecComponents.isSelected();
-			//Starting timers and signalling to Animation Panel to display (or not) projectile mechanics (ex. vector components and projectile via blnShowVectors & blnStatus) 		
+			// Starting timers and signalling to Animation Panel to display (or not) projectile mechanics (ex. vector components and projectile via blnShowVectors & blnStatus) 		
 	
 		} else if (evt.getSource() == AirTimer){
-                	if (AnimPanel.dblProjectileY > 315.0){
-                                AirTimer.stop();
-                        }
-		        intMilSec = intMilSec + 1;
-			//Counting the number of miliseconds while the projectile is "in the air" ~ still in active motion (non-static equilibrium)
+            if (AnimPanel.dblProjectileY > 315.0) AirTimer.stop();
+		    intMilSec = intMilSec + 1;
+			// Counting the number of miliseconds while the projectile is "in the air" ~ still in active motion (non-static equilibrium)
 
-                } else if (evt.getSource() == AnimTimer){			
+        } else if (evt.getSource() == AnimTimer) {			
 			if (intMilSec < 500){
-                                AnimPanel.blnBoom = true;
-				//Signalling to Animation Panel to display the launch explosion effects for the first 0.5 seconds
-                        } else {
-                                AnimPanel.blnBoom = false;
-				//Actively disabling the launch epxlosion effects as soon as the timer no longer exists within the 0.5 second parameters 
+                AnimPanel.blnBoom = true;
+				// Signalling to Animation Panel to display the launch explosion effects for the first 0.5 seconds
+            } else {
+                AnimPanel.blnBoom = false;
+				// Actively disabling the launch epxlosion effects as soon as the timer no longer exists within the 0.5 second parameters 
 			}
 
-			if (AnimPanel.dblProjectileY>315.0){
-                                AnimTimer.stop();
+			if (AnimPanel.dblProjectileY>315.0) {
+                AnimTimer.stop();
 		
 				AnimPanel.add(AirTime);
 				AnimPanel.add(Range);
 				AnimPanel.add(OKButton);
 
 				OKButton.setVisible(true);
-                       	 	OKButton.setEnabled(true);
-                        	AirTime.setVisible(true);
-              	         	Range.setVisible(true);
+				OKButton.setEnabled(true);
+				AirTime.setVisible(true);
+				Range.setVisible(true);
 				AirTime.setText("Air Time: "+(((double) intMilSec) / 1000.0)+" s");
-        			Range.setText("Range: "+((Math.round(AnimPanel.dblProjectileX)*10.0)/10.0 - 110.0)+" m");
-				//Stopping the timer; thus, stopping the animation algorithm and displaying results screen (with OKButton for users to proceed at their discretion)	
-				//Stop is determined when the projectile surpasses the y coordinate 315
+        		Range.setText("Range: "+((Math.round(AnimPanel.dblProjectileX)*10.0)/10.0 - 110.0)+" m");
+				// Stopping the timer; thus, stopping the animation algorithm and displaying results screen 
+				// (with OKButton for users to proceed at their discretion)	
+				// Stop is determined when the projectile surpasses the y coordinate 315
 			}	
 			
-			dblInitialVY = dblInitialVY - (0.048*9.8);
+			dblInitialVY = dblInitialVY - (0.048 * 9.8);
 			AnimPanel.dblDeltaY = dblInitialVY * 0.048;
-			AnimPanel.dblProjectileY = AnimPanel.dblProjectileY -3*AnimPanel.dblDeltaY;
+			AnimPanel.dblProjectileY = AnimPanel.dblProjectileY - 3 * AnimPanel.dblDeltaY;
 			AnimPanel.dblVY = dblInitialVY;
 			dblInitialVX = dblInitialVX; 
-			AnimPanel.dblDeltaX = dblInitialVX*0.048;
-			AnimPanel.dblProjectileX = AnimPanel.dblProjectileX + 3*AnimPanel.dblDeltaX;
+			AnimPanel.dblDeltaX = dblInitialVX * 0.048;
+			AnimPanel.dblProjectileX = AnimPanel.dblProjectileX + 3 * AnimPanel.dblDeltaX;
 			AnimPanel.dblVX = dblInitialVX;
 			AnimPanel.repaint();
-			//Velocity and Displacement algorithm with acceleration due to gravity dependent on time as outlined by the iteration / 0.048 seconds and repainting changes via Animation Panel
+			// Velocity and Displacement algorithm with acceleration due to gravity dependent on time as 
+			// outlined by the iteration / 0.048 seconds and repainting changes via Animation Panel
+
 		} else if (evt.getSource() == OKButton){
 			InitialHeightSlider.setEnabled(true);
 			AngleSlider.setEnabled(true);
@@ -300,11 +303,11 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 			Range.setVisible(false);
 			AnimPanel.blnShowVectors = false;
 			AnimPanel.repaint();
-			//Re-enabling the disabled modification items and hiding all dynamic display components (ex. launch explosion effects, projectile image, vector components, etc...)
+			// Re-enabling the disabled modification items and hiding all dynamic display components (ex. launch explosion effects, projectile image, vector components, etc...)
 		}
 	}
 	
-	//ChangeListener-Compatible Component Event Methods: Overriding stateChanged interface method
+	// ChangeListener-Compatible Component Event Methods: Overriding stateChanged interface method
 	public void stateChanged(ChangeEvent evt){
 		if (evt.getSource() == InitialVelocitySlider){
 			InitialVelocityTextField.setText(InitialVelocitySlider.getValue()+"");
@@ -332,8 +335,9 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 	}
 
 
-	// Constructor ======================================================
-	// Setting sizes, locations, etc. for JComponents and attaching them to their respective hierarchical structures
+	// Constructor ==============================================================
+	// Setting sizes, locations, etc. for JComponents and attaching them to their 
+	// respective hierarchical structures
 	public ProjectileMotion() {
 
 		// Main Animation or Simulation Panels and Parent Frame 
@@ -343,17 +347,17 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 		AnimPanel.setLayout(null);
 		MainWindowFrame.setContentPane(AnimPanel);
 		
-		//About Panel
+		// About Panel
 		AboutP = new AboutPanel();
 		AboutP.setPreferredSize(new Dimension(960, 1000));
 		AboutP.setLayout(null);
 		
-		//HelpPanel
+		// HelpPanel
 		HelpPANEL = new HelpPanel();
 		HelpPANEL.setPreferredSize(new Dimension(960, 540));
 		HelpPANEL.setLayout(null);
 
-		//Menu Components
+		// Menu Components
 		MenuBar = new JMenuBar();
 		Menu = new JMenu("Menu");
 		Simulation = new JMenuItem("Simulation");
@@ -383,7 +387,7 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 		ShowVecComponents.addActionListener(this);
 		AnimPanel.add(ShowVecComponents);
 
-		//Angle
+		// Angle
 		AngleSlider = new JSlider(-90,90,60);
 		AngleSlider.setSize(200, 50);
 		AngleSlider.setLocation(250,410);
@@ -407,7 +411,7 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 		AnimPanel.add(AngleTextField);
 
 
-		//Initial Velocity
+		// Initial Velocity
 		InitialVelocitySlider = new JSlider(10,100, 60);
 		InitialVelocitySlider.setSize(200,50);
 		InitialVelocitySlider.setLocation(250,460);
@@ -430,7 +434,7 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 		InitialVelocityTextField.addActionListener(this);
 		AnimPanel.add(InitialVelocityTextField);
 
-		//Projectile Selection Buttons
+		// Projectile Selection Buttons
 		SelectProjectileLabel = new JLabel("Select Projectile:");
 		SelectProjectileLabel.setSize(150, 75);
 		SelectProjectileLabel.setLocation(510, 390);
@@ -446,7 +450,7 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 		ChooseProjectileComboBox.addActionListener(this);
 		AnimPanel.add(ChooseProjectileComboBox);
 
-		//Initial Height of Cannon (Instance of Projectile Launch)
+		// Initial Height of Cannon (Instance of Projectile Launch)
 		InitialHeightSlider = new JSlider(0,30, 0);
 		InitialHeightSlider.setSize(50,200);
 		InitialHeightSlider.setLocation(45,50);
@@ -486,7 +490,7 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 		OKButton.setLocation(425, 230);
 		OKButton.addActionListener(this);
 
-		//Help Panel Page Flip Buttons
+		// Help Panel Page Flip Buttons
 		RightButton = new JButton("Next");
 		RightButton.setSize(150, 50);
 		RightButton.setLocation(740, 445);
@@ -504,16 +508,16 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 		MainWindowFrame.setResizable(false);
 		MainWindowFrame.setVisible(true);	
 	}
-	//Method for converting string to object for jcombobox item (projectile selector);
+	// Method for converting string to object for jcombobox item (projectile selector);
 	public Object makeObj(final String item){
 		return new Object(){ public String toString() { return item; } };
 	}
 	
-	//Initial Velocity Componentization Calculations Method
+	// Initial Velocity Componentization Calculations Method
 	public void VCalc (double dblVi, double dblAngle){
 		dblInitialVX = dblVi*(Math.cos(Math.toRadians(dblAngle)));
 		dblInitialVY = dblVi*(Math.sin(Math.toRadians(dblAngle)));
-		 // System.out.println("Vi: "+dblInitialV+" Vx: "+dblInitialVX+" Vy: "+dblInitialVY);
+		// System.out.println("Vi: "+dblInitialV+" Vx: "+dblInitialVX+" Vy: "+dblInitialVY);
 	}
 
 	// Main Method
