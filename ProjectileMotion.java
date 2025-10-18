@@ -214,7 +214,7 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 			dblInitialVY = dblInitialV*Math.sin(Math.toRadians(dblLaunchAngle));
 			AnimPanel.dblVX = dblInitialVX;
 			AnimPanel.dblVY = dblInitialVY;
-			//Transposing local class data (for componentalized velocity vectors) to Animation Panel
+			// Transposing local class data (for componentalized velocity vectors) to Animation Panel
 
 			intMilSec = 0;
 			AnimPanel.dblProjectileX = 110.0;
