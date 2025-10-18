@@ -32,7 +32,7 @@ public class AboutPanel extends JScrollPane {
 
         try {
             // Initialize the imageIcon
-            imageIcon = new ImageIcon("About1.png");
+            imageIcon = new ImageIcon("assets/img/About1.png");
         } catch (Exception e) {
             System.out.println("Unable to load image");
         }
