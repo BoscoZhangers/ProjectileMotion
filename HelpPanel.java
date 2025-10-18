@@ -20,7 +20,7 @@ public class HelpPanel extends JPanel{
 		//For each help page, use the intPageNum (changeable variable) to determine which to draw as imgHelpPage and establish a page layout graphic using ovals and color differentiation
 		if (intPageNum == 1){
 			try{	
-				imgHelpPage = ImageIO.read(new File("HelpPage1.png"));
+				imgHelpPage = ImageIO.read(new File("assets/img/HelpPage1.png"));
 			} catch (IOException e){
 				System.out.println("Unable to load image");
 			}
@@ -34,7 +34,7 @@ public class HelpPanel extends JPanel{
 			g.fillOval(575, 460, 20, 20);
 		} else if (intPageNum == 2){
 			try{
-				imgHelpPage = ImageIO.read(new File("HelpPage2.png"));
+				imgHelpPage = ImageIO.read(new File("assets/img/HelpPage2.png"));
 			} catch (IOException e){
 				System.out.println("Unable to load image");
 			}
@@ -49,7 +49,7 @@ public class HelpPanel extends JPanel{
                         g.fillOval(575, 460, 20, 20);
 		} else if (intPageNum == 3){
 			try{
-				imgHelpPage = ImageIO.read(new File("HelpPage3.png"));
+				imgHelpPage = ImageIO.read(new File("assets/img/HelpPage3.png"));
 			} catch (IOException e){
 				System.out.println("Unable to load image");
 			}
@@ -64,7 +64,7 @@ public class HelpPanel extends JPanel{
                         g.fillOval(575, 460, 20, 20);
 		} else if (intPageNum == 4){
 			try{
-				imgHelpPage = ImageIO.read(new File("HelpPage4.png"));
+				imgHelpPage = ImageIO.read(new File("assets/img/HelpPage4.png"));
 			} catch (IOException e){
 				System.out.println("Unable to load image");
 			}
@@ -79,8 +79,8 @@ public class HelpPanel extends JPanel{
                         g.fillOval(575, 460, 20, 20);
 		} else if (intPageNum == 5){
 			try{
-				imgHelpPage = ImageIO.read(new File("HelpPage5.png"));
-			} catch (IOException e){
+				imgHelpPage = ImageIO.read(new File("assets/img/HelpPage5.png"));
+			} catch (IOException e) {
 				System.out.println("Unable to load image");
 			}
 			g.setColor(Color.WHITE);
@@ -94,7 +94,7 @@ public class HelpPanel extends JPanel{
 			g.fillOval(575, 460, 20, 20);
 		} else if (intPageNum == 6){
 			try{
-				imgHelpPage = ImageIO.read(new File("HelpPage6.png"));
+				imgHelpPage = ImageIO.read(new File("assets/img/HelpPage6.png"));
 			} catch (IOException e){
 				System.out.println("Unable to load image");
 			}

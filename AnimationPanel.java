@@ -72,28 +72,28 @@ public class AnimationPanel extends JPanel{
 		
 		if(dblAng==-90.0){
 			try{
-				imgCannon = ImageIO.read(new File("Cannon-90.png"));
+				imgCannon = ImageIO.read(new File("assets/img/Cannon-90.png"));
 			} catch (IOException e){
 				System.out.println("Unable to load image");
 			}
 			g.drawImage(imgCannon, 100, 265-3*(int)dblLift, null); 
 		} else if (dblAng == -60.0){
 			try{
-				imgCannon = ImageIO.read(new File("Cannon-60.png"));
+				imgCannon = ImageIO.read(new File("assets/img/Cannon-60.png"));
 			} catch (IOException e){
 				System.out.println("Unable to load image");
 			}
 			g.drawImage(imgCannon, 85, 265-3*(int)dblLift, null);
 		} else if (dblAng == -30.0){
 			try{
-				imgCannon = ImageIO.read(new File("Cannon-30.png"));
+				imgCannon = ImageIO.read(new File("assets/img/Cannon-30.png"));
 			} catch (IOException e){
 				System.out.println("Unable to load image");
 			}
 			g.drawImage(imgCannon, 85, 270-3*(int)dblLift, null);
 		} else if (dblAng == 0){
 			try{
-				imgCannon = ImageIO.read(new File("Cannon0.png"));
+				imgCannon = ImageIO.read(new File("assets/img/Cannon0.png"));
 			} catch (IOException e){
 				System.out.println("Unable to load image");
 			}
@@ -101,7 +101,7 @@ public class AnimationPanel extends JPanel{
 			g.drawImage(imgWheel, 42, 267-3*(int)dblLift, null);
 		} else if (dblAng == 30){
 			try{
-				imgCannon = ImageIO.read(new File("Cannon30.png"));
+				imgCannon = ImageIO.read(new File("assets/img/Cannon30.png"));
 			} catch (IOException e){
 				System.out.println("Unable to load image");
 			}
@@ -109,7 +109,7 @@ public class AnimationPanel extends JPanel{
 			g.drawImage(imgWheel, 42, 267-3*(int)dblLift, null);
 		} else if (dblAng == 60){
  			try{
-				imgCannon = ImageIO.read(new File("Cannon60.png"));
+				imgCannon = ImageIO.read(new File("assets/img/Cannon60.png"));
 			} catch (IOException e){
 				System.out.println("Unable to load image");
 			}
@@ -117,7 +117,7 @@ public class AnimationPanel extends JPanel{
 			g.drawImage(imgWheel, 42, 267-3*(int)dblLift, null); 
 		} else if (dblAng == 90){
 			try{
-				imgCannon = ImageIO.read(new File("Cannon90.png"));
+				imgCannon = ImageIO.read(new File("assets/img/Cannon90.png"));
 			} catch(IOException e){
 				System.out.println("Unanle to load image");
 			}
@@ -127,25 +127,25 @@ public class AnimationPanel extends JPanel{
 		
 		if (strProjectile == "Ball"){
 			try{
-				imgProjectile = ImageIO.read(new File("Ball.png"));
+				imgProjectile = ImageIO.read(new File("assets/img/Ball.png"));
 			} catch(IOException e){
 				System.out.println("Unable to load image");
 			} 
 		} else if (strProjectile == "Basketball"){
 			try{
-				imgProjectile = ImageIO.read(new File("Basketball.png"));
+				imgProjectile = ImageIO.read(new File("assets/img/Basketball.png"));
 			} catch (IOException e){
 				System.out.println("Unable to load image");
 			} 
 		} else if (strProjectile == "Bosco"){
 			try{
-				imgProjectile = ImageIO.read(new File("Bosco.png"));
+				imgProjectile = ImageIO.read(new File("assets/img/Bosco.png"));
 			} catch (IOException e){
 				System.out.println("Unable to load image");
 			}
 		} else if (strProjectile == "Nihal"){
 			try{
-				imgProjectile = ImageIO.read(new File("Nihal.png"));
+				imgProjectile = ImageIO.read(new File("assets/img/Nihal.png"));
 			} catch (IOException e){
 				System.out.println("Unable to load image");
 			}
@@ -176,9 +176,9 @@ public class AnimationPanel extends JPanel{
 	public AnimationPanel(){
 		super();
 		try{
-			imgBackground = ImageIO.read(new File("Background.png"));
-			imgWheel = ImageIO.read(new File("Wheel.png"));
-			imgBang = ImageIO.read(new File("BANG.png"));
+			imgBackground = ImageIO.read(new File("assets/img/Background.png"));
+			imgWheel = ImageIO.read(new File("assets/img/Wheel.png"));
+			imgBang = ImageIO.read(new File("assets/img/BANG.png"));
 		} catch(IOException e){
 			System.out.println("Unable to load image");
 			System.out.println(e.toString());
