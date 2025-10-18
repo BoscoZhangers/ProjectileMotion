@@ -43,6 +43,31 @@ ${}$
 
 ${}$
 
+## 🧱 File Structure
+```
+ProjectileMotion/
+ │
+ ├── assets/
+ │    ├── img/
+ │    └── TFeaturesGIF.gif
+ │
+ ├── docs/
+ │    └── AnimationPanel.html
+ │
+ ├── src/ 
+ │    ├── AboutPanel.java
+ │    ├── AnimationPanel.java
+ │    ├── HelpPanel.java
+ │    └── ProjectileMotion.java
+ │ 
+ ├── AboutPanel.class
+ ├── AnimationPanel.class
+ ├── HelpPanel.class
+ ├── ProjectileMotion.jar
+ └── README.md
+```
+
+ ${}$
 ## 🧠 Design Notes
 
 This simulator makes use of the observer design pattern by defining an AnimationPanel object with Java Swing interactable components (ex. buttons, sliders, etc...). 
