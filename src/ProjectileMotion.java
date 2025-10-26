@@ -15,7 +15,7 @@ import javax.swing.event.*;
 
 // Defining main class and implementing Java event listeners
 public class ProjectileMotion implements ActionListener, ChangeListener {
-	static double VERSION = 2.0;
+	static double VERSION = 3.0;
         
 	// Properties =============================================================
 

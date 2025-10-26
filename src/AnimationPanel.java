@@ -3,11 +3,12 @@ import java.awt.*;
 import javax.swing.*;
 import javax.imageio.*;
 import java.awt.image.*;
+import java.util.*;
 
 /** Child class called AnimationPanel that extends from the parent class: JPanel*/
 public class AnimationPanel extends JPanel{
 
-	//Properties
+	// Properties
 	/** Background image */
 	public BufferedImage imgBackground;
 
@@ -61,16 +62,16 @@ public class AnimationPanel extends JPanel{
 
 	//Methods
 	/** Calls the paint method to override the default JPanel*/
-	public void paintComponent (Graphics g){
+	public void paintComponent (Graphics g) {
 		super.paintComponent(g);
 
 		g.drawImage(imgBackground, 15, 10, null);    
 		g.setColor(Color.GRAY);
- 		g.fillRect(65, 375-3*(int)dblLift, 100, 3*(int)dblLift);
-		g.drawImage(imgWheel, 42, 267-3*(int)dblLift, null);
+ 		g.fillRect(65, 375 - 3 * (int) dblLift, 100, 3 * (int) dblLift);
+		g.drawImage(imgWheel, 42, 267 - 3 * (int) dblLift, null);
 
 		
-		if(dblAng==-90.0){
+		if (dblAng == -90.0){
 			try{
 				imgCannon = ImageIO.read(new File("assets/img/Cannon-90.png"));
 			} catch (IOException e){
@@ -152,27 +153,38 @@ public class AnimationPanel extends JPanel{
 		}
 
 		if (blnBoom == true){
-			g.drawImage(imgBang, 85,250-3*(int)dblLift , null);
+			g.drawImage(imgBang, 85, 250 - 3 * (int) dblLift , null);
 		}
 		if (blnStatus == true && dblProjectileY > 10 && dblProjectileX<930){
                  	g.drawImage(imgProjectile, (int)dblProjectileX, (int)dblProjectileY, null);
 	
 			if (blnShowVectors == true){
+				// Horizontal (X) Component
 				g.setColor(Color.RED);
-				g.fillRect((int)(dblProjectileX+50), (int)dblProjectileY+10, (int)(Math.abs(dblVX)), 30);
+				Polygon XTriangle = new Polygon();
+				XTriangle.addPoint((int) (dblProjectileX) + (int) (dblVX) + 50, (int) (dblProjectileY));
+				XTriangle.addPoint((int) (dblProjectileX) + (int) (dblVX) + 50, (int) (dblProjectileY + 50));
+				XTriangle.addPoint((int) (dblProjectileX) + (int) (dblVX) + 80, (int) (dblProjectileY + 25));
+
+				g.fillRect((int)(dblProjectileX + 50), (int)dblProjectileY + 10, (int)(Math.abs(dblVX)), 30);
+				g.fillPolygon(XTriangle);
+
 				g.setColor(Color.GREEN);
-				if (dblVY >=0){
+				if (dblVY >= 0) {
+					if (dblVY != 0) {
+					
+					}
 					g.fillRect((int)dblProjectileX+10, (int)dblProjectileY-(int)(Math.abs(dblVY)), 30, (int)(Math.abs(dblVY)));
 				} else if (dblVY < 0){	
 					g.fillRect((int)dblProjectileX+10, (int)dblProjectileY+50, 30, (int) (Math.abs(dblVY)));
 				}
 			}	
                 }
-		//Sets the restrictions to when the projectile is visible and when it is not ~ a.k.a. when it is not drawn and covered only by the other background images. Specifically, this stops the projectile from appearing at the edge of the panel or outside of the animation screen for better quality. 
+		// Sets the restrictions to when the projectile is visible and when it is not ~ a.k.a. when it is not drawn and covered only by the other background images. Specifically, this stops the projectile from appearing at the edge of the panel or outside of the animation screen for better quality. 
 	}
 	
-	//Constructor
-	/**Creates an instance of the AnimationPanel class; a object constructor extended from the parent class: JPanel. Objects created under this constructor are AnimationPanels.*/
+	// Constructor
+	// Creates an instance of the AnimationPanel class; a object constructor extended from the parent class: JPanel. Objects created under this constructor are AnimationPanels.*/
 	public AnimationPanel(){
 		super();
 		try{
