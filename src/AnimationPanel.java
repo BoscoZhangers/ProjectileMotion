@@ -172,10 +172,19 @@ public class AnimationPanel extends JPanel{
 				g.setColor(Color.GREEN);
 				if (dblVY >= 0) {
 					if (dblVY != 0) {
-					
+						Polygon YTriangle = new Polygon(); 
+						YTriangle.addPoint((int) (dblProjectileX), (int) (dblProjectileY - dblVY + 1));
+						YTriangle.addPoint((int) (dblProjectileX + 25), (int) (dblProjectileY) - (int) (dblVY) - 29);
+						YTriangle.addPoint((int) (dblProjectileX + 50), (int) (dblProjectileY) - (int) (dblVY + 1));
+						g.fillPolygon(YTriangle);
 					}
-					g.fillRect((int)dblProjectileX+10, (int)dblProjectileY-(int)(Math.abs(dblVY)), 30, (int)(Math.abs(dblVY)));
+					g.fillRect((int)dblProjectileX+10, (int)dblProjectileY-(int)(dblVY), 30, (int)(dblVY));
 				} else if (dblVY < 0){	
+					Polygon YTriangle = new Polygon();
+					YTriangle.addPoint((int) (dblProjectileX), (int) (dblProjectileY + 49 + Math.abs(dblVY)));
+					YTriangle.addPoint((int) (dblProjectileX + 25), (int) (dblProjectileY + 79 + Math.abs(dblVY)));
+					YTriangle.addPoint((int) (dblProjectileX + 50), (int) (dblProjectileY + 49 + Math.abs(dblVY)));
+					g.fillPolygon(YTriangle);
 					g.fillRect((int)dblProjectileX+10, (int)dblProjectileY+50, 30, (int) (Math.abs(dblVY)));
 				}
 			}	
