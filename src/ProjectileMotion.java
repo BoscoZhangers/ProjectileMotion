@@ -218,7 +218,7 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 
 			intMilSec = 0;
 			AnimPanel.dblProjectileX = 110.0;
-			AnimPanel.dblProjectileY = 315.0 - 3.0*dblInitialHeight;
+			AnimPanel.dblProjectileY = 475.0 - 3.0 * dblInitialHeight;
 			AnimPanel.strProjectile = String.valueOf(ChooseProjectileComboBox.getSelectedItem());	
 			// Resetting air timer and projectile coordinate (position) values from previous launch(es)
 		
@@ -242,7 +242,7 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 			// Starting timers and signalling to Animation Panel to display (or not) projectile mechanics (ex. vector components and projectile via blnShowVectors & blnStatus) 		
 	
 		} else if (evt.getSource() == AirTimer){
-            if (AnimPanel.dblProjectileY > 315.0) AirTimer.stop();
+            if (AnimPanel.dblProjectileY > 475.0) AirTimer.stop();
 		    intMilSec = intMilSec + 1;
 			// Counting the number of miliseconds while the projectile is "in the air" ~ still in active motion (non-static equilibrium)
 
@@ -255,7 +255,7 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 				// Actively disabling the launch epxlosion effects as soon as the timer no longer exists within the 0.5 second parameters 
 			}
 
-			if (AnimPanel.dblProjectileY>315.0) {
+			if (AnimPanel.dblProjectileY>475.0) {
                 AnimTimer.stop();
 		
 				AnimPanel.add(AirTime);
@@ -315,7 +315,7 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 			this.VCalc(dblInitialV, dblLaunchAngle);
 			// Processing changes to the InitialVelocitySlider and adjusting other user input sources for consistency, as well as calling VCalc to derive the component velocities
 		} else if (evt.getSource() == AngleSlider){
-			AngleTextField.setText(AngleSlider.getValue()+"");
+			AngleTextField.setText(AngleSlider.getValue() + "");
 			dblLaunchAngle = (double) AngleSlider.getValue();
 			this.VCalc(dblInitialV, dblLaunchAngle);
 			AnimPanel.dblAng = (double) AngleSlider.getValue();
@@ -343,7 +343,7 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 		// Main Animation or Simulation Panels and Parent Frame 
 		MainWindowFrame = new JFrame("Projectile Motion Simulation");
 		AnimPanel = new AnimationPanel();	
-		AnimPanel.setPreferredSize(new Dimension(960, 540));
+		AnimPanel.setPreferredSize(new Dimension(1300, 700));
 		AnimPanel.setLayout(null);
 		MainWindowFrame.setContentPane(AnimPanel);
 		
@@ -376,21 +376,21 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 		// Acceleration Due to Gravity Info
 		GravityLabel = new JLabel("Accepted Acceleration Due to Gravity: 9.8 m/s^2 (down)");
 		GravityLabel.setSize(400, 50);
-		GravityLabel.setLocation(560, 15);
+		GravityLabel.setLocation(900, 15);
 		AnimPanel.add(GravityLabel);
 
 		// Display Settings
 		ShowVecComponents = new JCheckBox("Show Vector Components");
 		ShowVecComponents.setSize(200,50);
-		ShowVecComponents.setLocation(725,35);
+		ShowVecComponents.setLocation(1065,35);
 		ShowVecComponents.setSelected(true);
 		ShowVecComponents.addActionListener(this);
 		AnimPanel.add(ShowVecComponents);
 
 		// Angle
 		AngleSlider = new JSlider(-90,90,60);
-		AngleSlider.setSize(200, 50);
-		AngleSlider.setLocation(250,410);
+		AngleSlider.setSize(400, 50);
+		AngleSlider.setLocation(250,570);
 		AngleSlider.setPaintTicks(true);
 		AngleSlider.setPaintLabels(true);
 		AngleSlider.setSnapToTicks(true);
@@ -401,20 +401,20 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 		
 		AngleLabel = new JLabel("Angle (°):");
 		AngleLabel.setSize(100, 70);
-		AngleLabel.setLocation(140, 400);
+		AngleLabel.setLocation(140, 560);
 		AnimPanel.add(AngleLabel);
 		
 		AngleTextField = new JTextField(String.valueOf(AngleSlider.getValue()));
 		AngleTextField.setSize(45, 35);
-		AngleTextField.setLocation(205, 420);
+		AngleTextField.setLocation(205, 580);
 		AngleTextField.addActionListener(this);
 		AnimPanel.add(AngleTextField);
 
 
 		// Initial Velocity
 		InitialVelocitySlider = new JSlider(10,100, 60);
-		InitialVelocitySlider.setSize(200,50);
-		InitialVelocitySlider.setLocation(250,460);
+		InitialVelocitySlider.setSize(400,50);
+		InitialVelocitySlider.setLocation(250,620);
 		InitialVelocitySlider.setPaintTicks(true);
 		InitialVelocitySlider.setPaintLabels(true);
 		InitialVelocitySlider.setSnapToTicks(true);
@@ -425,19 +425,19 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 
 		InitialVelocityLabel = new JLabel("Initial Velocity (m/s):");
 		InitialVelocityLabel.setSize(135, 70);
-		InitialVelocityLabel.setLocation(65, 450);
+		InitialVelocityLabel.setLocation(65, 610);
 		AnimPanel.add(InitialVelocityLabel);
 
 		InitialVelocityTextField = new JTextField(String.valueOf(InitialVelocitySlider.getValue()));
 		InitialVelocityTextField.setSize(45, 35);
-		InitialVelocityTextField.setLocation(205,468);
+		InitialVelocityTextField.setLocation(205,628);
 		InitialVelocityTextField.addActionListener(this);
 		AnimPanel.add(InitialVelocityTextField);
 
 		// Projectile Selection Buttons
 		SelectProjectileLabel = new JLabel("Select Projectile:");
 		SelectProjectileLabel.setSize(150, 75);
-		SelectProjectileLabel.setLocation(510, 390);
+		SelectProjectileLabel.setLocation(750, 550);
 		AnimPanel.add(SelectProjectileLabel);
 		
 		ChooseProjectileComboBox = new JComboBox();
@@ -446,13 +446,13 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 		ChooseProjectileComboBox.addItem(makeObj("Bosco"));
 		ChooseProjectileComboBox.addItem(makeObj("Nihal"));
 		ChooseProjectileComboBox.setSize(200,50);
-		ChooseProjectileComboBox.setLocation(625, 403);
+		ChooseProjectileComboBox.setLocation(860, 563);
 		ChooseProjectileComboBox.addActionListener(this);
 		AnimPanel.add(ChooseProjectileComboBox);
 
 		// Initial Height of Cannon (Instance of Projectile Launch)
-		InitialHeightSlider = new JSlider(0,30, 0);
-		InitialHeightSlider.setSize(50,200);
+		InitialHeightSlider = new JSlider(0,60, 0);
+		InitialHeightSlider.setSize(50,300);
 		InitialHeightSlider.setLocation(45,50);
 		InitialHeightSlider.setPaintTicks(true);
 		InitialHeightSlider.setPaintLabels(true);
@@ -472,7 +472,7 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 		// Launch Button	
 		LaunchButton = new JButton("Launch Projectile");
 		LaunchButton.setSize(300, 60);
-		LaunchButton.setLocation(510, 450);
+		LaunchButton.setLocation(750, 610);
 		LaunchButton.addActionListener(this);
 		AnimPanel.add(LaunchButton);
 	
@@ -483,11 +483,11 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 
 		AirTime.setSize(200, 50);
 		Range.setSize(200, 50);
-		AirTime.setLocation(410, 150);
-		Range.setLocation (410, 170);
+		AirTime.setLocation(600, 150);
+		Range.setLocation (600, 170);
 
 		OKButton.setSize(80, 40);
-		OKButton.setLocation(425, 230);
+		OKButton.setLocation(610, 220);
 		OKButton.addActionListener(this);
 
 		// Help Panel Page Flip Buttons
@@ -515,8 +515,8 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 	
 	// Initial Velocity Componentization Calculations Method
 	public void VCalc (double dblVi, double dblAngle){
-		dblInitialVX = dblVi*(Math.cos(Math.toRadians(dblAngle)));
-		dblInitialVY = dblVi*(Math.sin(Math.toRadians(dblAngle)));
+		dblInitialVX = dblVi * (Math.cos(Math.toRadians(dblAngle)));
+		dblInitialVY = dblVi * (Math.sin(Math.toRadians(dblAngle)));
 		// System.out.println("Vi: "+dblInitialV+" Vx: "+dblInitialVX+" Vy: "+dblInitialVY);
 	}
 
