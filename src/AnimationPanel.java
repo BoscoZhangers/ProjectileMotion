@@ -54,21 +54,21 @@ public class AnimationPanel extends JPanel{
 	/** The status of the projectile (being lauched or not) */
 	public boolean blnStatus = false;
 
-	/**Are the vector components being shown */
+	/** Are the vector components being shown */
 	public boolean blnShowVectors = true;
 
 	/** Boolean for if boom image (launch explosion effect) should be shown */
 	public boolean blnBoom = false;
 
-	//Methods
+	// Methods
 	/** Calls the paint method to override the default JPanel*/
 	public void paintComponent (Graphics g) {
 		super.paintComponent(g);
 
 		g.drawImage(imgBackground, 15, 10, null);    
 		g.setColor(Color.GRAY);
- 		g.fillRect(65, 375 - 3 * (int) dblLift, 100, 3 * (int) dblLift);
-		g.drawImage(imgWheel, 42, 267 - 3 * (int) dblLift, null);
+ 		g.fillRect(65, 535 - 3 * (int) dblLift, 100, 3 * (int) dblLift);
+		g.drawImage(imgWheel, 42, 427 - 3 * (int) dblLift, null);
 
 		
 		if (dblAng == -90.0){
@@ -77,53 +77,49 @@ public class AnimationPanel extends JPanel{
 			} catch (IOException e){
 				System.out.println("Unable to load image");
 			}
-			g.drawImage(imgCannon, 100, 265-3*(int)dblLift, null); 
+			g.drawImage(imgCannon, 100, 425-3*(int)dblLift, null); 
 		} else if (dblAng == -60.0){
 			try{
 				imgCannon = ImageIO.read(new File("assets/img/Cannon-60.png"));
 			} catch (IOException e){
 				System.out.println("Unable to load image");
 			}
-			g.drawImage(imgCannon, 85, 265-3*(int)dblLift, null);
+			g.drawImage(imgCannon, 85, 425-3*(int)dblLift, null);
 		} else if (dblAng == -30.0){
 			try{
 				imgCannon = ImageIO.read(new File("assets/img/Cannon-30.png"));
 			} catch (IOException e){
 				System.out.println("Unable to load image");
 			}
-			g.drawImage(imgCannon, 85, 270-3*(int)dblLift, null);
+			g.drawImage(imgCannon, 85, 430-3*(int)dblLift, null);
 		} else if (dblAng == 0){
 			try{
 				imgCannon = ImageIO.read(new File("assets/img/Cannon0.png"));
 			} catch (IOException e){
 				System.out.println("Unable to load image");
 			}
-			g.drawImage(imgCannon, 80, 210-3*(int)dblLift, null);
-			g.drawImage(imgWheel, 42, 267-3*(int)dblLift, null);
+			g.drawImage(imgCannon, 80, 370-3*(int)dblLift, null);
 		} else if (dblAng == 30){
 			try{
 				imgCannon = ImageIO.read(new File("assets/img/Cannon30.png"));
 			} catch (IOException e){
 				System.out.println("Unable to load image");
 			}
-			g.drawImage(imgCannon, 80, 220-3*(int)dblLift, null);
-			g.drawImage(imgWheel, 42, 267-3*(int)dblLift, null);
+			g.drawImage(imgCannon, 80, 380-3*(int)dblLift, null);
 		} else if (dblAng == 60){
  			try{
 				imgCannon = ImageIO.read(new File("assets/img/Cannon60.png"));
 			} catch (IOException e){
 				System.out.println("Unable to load image");
 			}
-			g.drawImage(imgCannon, 85, 220-3*(int)dblLift, null);
-			g.drawImage(imgWheel, 42, 267-3*(int)dblLift, null); 
+			g.drawImage(imgCannon, 92, 380-3*(int)dblLift, null);
 		} else if (dblAng == 90){
 			try{
 				imgCannon = ImageIO.read(new File("assets/img/Cannon90.png"));
 			} catch(IOException e){
 				System.out.println("Unanle to load image");
 			}
-			g.drawImage(imgCannon, 96, 220-3*(int)dblLift, null);
-			g.drawImage(imgWheel, 42, 267-3*(int)dblLift, null);
+			g.drawImage(imgCannon, 96, 380-3*(int)dblLift, null);
 		}
 		
 		if (strProjectile == "Ball"){
@@ -153,10 +149,10 @@ public class AnimationPanel extends JPanel{
 		}
 
 		if (blnBoom == true){
-			g.drawImage(imgBang, 85, 250 - 3 * (int) dblLift , null);
+			g.drawImage(imgBang, 85, 410 - 3 * (int) dblLift , null);
 		}
-		if (blnStatus == true && dblProjectileY > 10 && dblProjectileX<930){
-                 	g.drawImage(imgProjectile, (int)dblProjectileX, (int)dblProjectileY, null);
+		if (blnStatus == true && (int) dblProjectileY > 10 && (int) dblProjectileX < 1200) {
+            g.drawImage(imgProjectile, (int)dblProjectileX, (int)dblProjectileY, null);
 	
 			if (blnShowVectors == true){
 				// Horizontal (X) Component
@@ -188,7 +184,7 @@ public class AnimationPanel extends JPanel{
 					g.fillRect((int)dblProjectileX+10, (int)dblProjectileY+50, 30, (int) (Math.abs(dblVY)));
 				}
 			}	
-                }
+        }
 		// Sets the restrictions to when the projectile is visible and when it is not ~ a.k.a. when it is not drawn and covered only by the other background images. Specifically, this stops the projectile from appearing at the edge of the panel or outside of the animation screen for better quality. 
 	}
 	
