@@ -349,12 +349,12 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 		
 		// About Panel
 		AboutP = new AboutPanel();
-		AboutP.setPreferredSize(new Dimension(960, 1000));
+		AboutP.setPreferredSize(new Dimension(1300, 1000));
 		AboutP.setLayout(null);
 		
 		// HelpPanel
 		HelpPANEL = new HelpPanel();
-		HelpPANEL.setPreferredSize(new Dimension(960, 540));
+		HelpPANEL.setPreferredSize(new Dimension(1300, 540));
 		HelpPANEL.setLayout(null);
 
 		// Menu Components
