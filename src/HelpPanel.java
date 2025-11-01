@@ -8,8 +8,8 @@ import java.awt.image.*;
 
 public class HelpPanel extends JPanel{
 		
-	//Properties
-	int intPageNum=1;
+	// Properties
+	int intPageNum = 1;
 	BufferedImage imgHelpPage;
 
 	//Methods
@@ -109,7 +109,7 @@ public class HelpPanel extends JPanel{
 		}
 		g.drawImage(imgHelpPage, 115, 30, null);
 	}
-	//Constructor
+	// Constructor
 	public HelpPanel(){
 		super();
 	}

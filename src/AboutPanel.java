@@ -21,9 +21,9 @@ public class AboutPanel extends JScrollPane {
     public AboutPanel() {
         super();
 
-	//Allow the vertical scroll bar to appear even when not used (constant: ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS)
+	// Allow the vertical scroll bar to appear even when not used (constant: ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS)
         this.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        this.setPreferredSize(new Dimension(960, 540));
+        this.setPreferredSize(new Dimension(1300, 540));
         this.getViewport().setOpaque(false);
         this.setOpaque(false);
 
