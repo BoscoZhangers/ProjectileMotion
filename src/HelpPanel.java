@@ -107,7 +107,7 @@ public class HelpPanel extends JPanel{
                         g.setColor(Color.DARK_GRAY);
 			g.fillOval(575, 460, 20, 20);
 		}
-		g.drawImage(imgHelpPage, 115, 30, null);
+		g.drawImage(imgHelpPage, 155, 30, null);
 	}
 	// Constructor
 	public HelpPanel(){
