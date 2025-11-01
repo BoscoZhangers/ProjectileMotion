@@ -492,14 +492,14 @@ public class ProjectileMotion implements ActionListener, ChangeListener {
 
 		// Help Panel Page Flip Buttons
 		RightButton = new JButton("Next");
-		RightButton.setSize(150, 50);
-		RightButton.setLocation(740, 445);
+		RightButton.setSize(185, 60);
+		RightButton.setLocation(1002, 576);
 		RightButton.addActionListener(this);
 		HelpPANEL.add(RightButton);  
 
 		LeftButton = new JButton("Back");     
-		LeftButton.setSize(150, 50);
-		LeftButton.setLocation(80, 445);
+		LeftButton.setSize(185, 60);
+		LeftButton.setLocation(200, 600);
 		LeftButton.addActionListener(this);
 		HelpPANEL.add(LeftButton);	
 	
