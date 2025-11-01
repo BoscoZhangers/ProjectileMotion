@@ -25,13 +25,13 @@ public class HelpPanel extends JPanel{
 				System.out.println("Unable to load image");
 			}
 			g.setColor(Color.DARK_GRAY);
-			g.fillOval(375, 460, 20, 20);
+			g.fillOval(508, 620, 20, 20);
 			g.setColor(Color.WHITE);
-			g.fillOval(415, 460, 20, 20);
-			g.fillOval(455, 460, 20, 20);
-			g.fillOval(495, 460, 20, 20);
-			g.fillOval(535, 460, 20, 20);
-			g.fillOval(575, 460, 20, 20);
+			g.fillOval(562, 620, 20, 20);
+			g.fillOval(616, 620, 20, 20);
+			g.fillOval(670, 620, 20, 20);
+			g.fillOval(724, 620, 20, 20);
+			g.fillOval(779, 620, 20, 20);
 		} else if (intPageNum == 2){
 			try{
 				imgHelpPage = ImageIO.read(new File("assets/img/HelpPage2.png"));
